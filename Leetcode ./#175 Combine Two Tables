@@ -1,0 +1,3 @@
+SELECT p.firstname, p.lastname, a.city, a.state
+FROM Person p LEFT JOIN Address a --using LEFT JOIN to join the two tables: person and address
+ON p.personId = a.personId; -- only join the data when they have the same id's
