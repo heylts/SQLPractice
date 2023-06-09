@@ -1,0 +1,9 @@
+-- create a CTE to count how many companies have duplicate job listings based on the title
+WITH temp_table AS (
+SELECT company_id, title, COUNT(title) AS title_count
+FROM job_listings
+GROUP BY company_id, title
+HAVING COUNT(title) > 1
+)
+
+SELECT COUNT(DISTINCT(company_id)) AS co_w_duplicate_jobs from temp_table;
